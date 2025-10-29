@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hotel Deluxe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>Hotel Deluxe</header>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" class="active">
+      <h2>Welcome to Hotel Deluxe</h2>
+      <div class="home-grid">
+        <div class="home-card" onclick="showSection('weather')"><span>☀️</span><h3>Weather</h3><p>Check latest weather</p></div>
+        <div class="home-card" onclick="showSection('rooms')"><span>💱</span><h3>Currency</h3><p>Convert money easily</p></div>
+        <div class="home-card" onclick="showSection('about')"><span>🌟</span><h3>TripAdvisor</h3><p>View sample reviews</p></div>
+        <div class="home-card" onclick="showSection('contact')"><span>📧</span><h3>Email Verify</h3><p>Check valid emails</p></div>
+      </div>
+    </section>
+
+    <!-- WEATHER -->
+    <section id="weather">
+      <a class="back-btn" onclick="showSection('home')">← Back</a>
+      <h2>Weather 🌦️</h2>
+      <div class="instructions">
+        👉 Enter your city (e.g., <b>Manila</b>, <b>Cebu</b>) to check current weather conditions.
+      </div>
+      <div class="api-box">
+        <input type="text" id="weather-city" placeholder="Enter city name">
+        <button onclick="getWeather()">Get Weather</button>
+        <div class="output" id="weather-output"></div>
+      </div>
+    </section>
+
+    <!-- CURRENCY -->
+    <section id="rooms">
+      <a class="back-btn" onclick="showSection('home')">← Back</a>
+      <h2>💱 Currency Converter</h2>
+      <div class="instructions">
+        💡 Enter the amount and choose the currencies you want to convert (e.g., USD → PHP).
+      </div>
+      <div class="api-box">
+        <input type="number" id="amount" placeholder="Amount" value="1">
+        <select id="from-currency">
+          <option value="USD">USD</option><option value="PHP">PHP</option><option value="EUR">EUR</option><option value="JPY">JPY</option>
+        </select>
+        <select id="to-currency">
+          <option value="PHP">PHP</option><option value="USD">USD</option><option value="EUR">EUR</option><option value="JPY">JPY</option>
+        </select>
+        <button onclick="getCurrency()">Convert</button>
+        <div class="output" id="currency-output"></div>
+      </div>
+    </section>
+
+    <!-- TRIPADVISOR MOCK -->
+    <section id="about">
+      <a class="back-btn" onclick="showSection('home')">← Back</a>
+      <h2>⭐ TripAdvisor Reviews</h2>
+      <div class="instructions">
+        🏨 Enter any hotel name to see a <b>sample</b> review display.
+      </div>
+      <div class="api-box">
+        <input type="text" id="hotel-name" placeholder="Enter hotel name">
+        <button onclick="getTripAdvisor()">Get Reviews</button>
+        <div class="output" id="tripadvisor-output"></div>
+      </div>
+    </section>
+
+    <!-- EMAIL VERIFY -->
+    <section id="contact">
+      <a class="back-btn" onclick="showSection('home')">← Back</a>
+      <h2>📧 Email Verification</h2>
+      <div class="instructions">
+        ✉️ Enter a valid email address (e.g., <b>example@gmail.com</b>) to check if it’s deliverable.
+      </div>
+      <div class="api-box">
+        <input type="email" id="email-input" placeholder="Enter email">
+        <button onclick="verifyEmail()">Verify</button>
+        <div class="output" id="email-output"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>&copy; 2025 Hotel Deluxe</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
